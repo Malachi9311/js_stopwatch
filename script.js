@@ -25,3 +25,14 @@ const watchStart = () => {
     }
     timer = setInterval(stopwatch, 1000);
 };
+
+const watchStop = () => {
+    clearInterval(timer);
+};
+
+const watchReset = () => {
+    clearInterval(timer);
+    [seconds, minutes, hours] = [0, 0, 0];
+    displayTime.innerHTML = "00:00:00";
+};
+
