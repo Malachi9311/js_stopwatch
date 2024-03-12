@@ -1,6 +1,7 @@
 let [seconds, minutes, hours] = [0, 0, 0];
 let displayTime = document.getElementById('displayTime');
 let timer = null;
+let pausePlay = document.getElementById('pausePlay')
 
 const stopwatch = () => {
     seconds++;
@@ -20,19 +21,24 @@ const stopwatch = () => {
 };
 
 const watchStart = () => {
-    if ( timer !== null) {
+    if (timer !== null) {
         clearInterval(timer);
+        pausePlay.src = "images/start.png"
     }
     timer = setInterval(stopwatch, 1000);
+    pausePlay.src = "images/pngtree-vector-pause-icon-png-image_966642.jpg";
+    pausePlay.style.borderRadius = "50%";
 };
 
 const watchStop = () => {
     clearInterval(timer);
+    pausePlay.src = "images/start.png"
 };
 
 const watchReset = () => {
     clearInterval(timer);
     [seconds, minutes, hours] = [0, 0, 0];
     displayTime.innerHTML = "00:00:00";
+    pausePlay.src = "images/start.png"
 };
 
